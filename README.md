@@ -1,11 +1,11 @@
-# This repository created to try examples code from official rust lang book.
+# This repository created to try examples code from the official rust lang book.
 https://doc.rust-lang.org/book/
 
-* How to create new cargo project:
+* How to create a new cargo project:
 ```
 $ cargo new new_project_name
 ```
-* How to create new cargo project without vcs:
+* How to create a new cargo project without VCS:
 ```
 $ cargo new --vcs none new_project_name
 ```
@@ -13,7 +13,7 @@ $ cargo new --vcs none new_project_name
 ```
 $ cargo build
 ```
-* How to build and run cargo project:
+* How to build and run a cargo project:
 ```
 $ cargo run
 ```
@@ -21,7 +21,7 @@ $ cargo run
 ```
 $ cargo build --release
 ```
-* How to build and run release cargo project:
+* How to build and run a release cargo project:
 ```
 $ cargo run --release
 ```
