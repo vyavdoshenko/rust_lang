@@ -18,6 +18,8 @@ fn main() {
     println!("Dime: {:?}", value_in_cents(Coin::Dime));
     println!("Quarter: {:?}", value_in_cents(Coin::Quarter(UsState::Alaska)));
     println!("Quarter: {:?}", value_in_cents(Coin::Quarter(UsState::Alabama)));
+
+    match_placeholder();
 }
 
 fn value_in_cents(coin: Coin) -> u8 {
@@ -29,5 +31,16 @@ fn value_in_cents(coin: Coin) -> u8 {
             println!("State quarter from {:?}!", state);
             25
         },
+    }
+}
+
+fn match_placeholder() {
+    let some_u8_value = 0u8;
+    match some_u8_value {
+        1 => println!("one"),
+        3 => println!("three"),
+        5 => println!("five"),
+        7 => println!("seven"),
+        _ => (),
     }
 }
