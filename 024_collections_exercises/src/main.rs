@@ -9,6 +9,9 @@ fn main() {
     println!("Mean: {:?}", mean);
     println!("Median: {:?}", median);
     println!("Mode: {:?}", mode);
+
+    println!("Pig latin: {:?}", pig_latin(&String::from("first")));
+    println!("Pig latin: {:?}", pig_latin(&String::from("apple")));
 }
 
 fn get_mean(v: &Vec<f64>) -> f64 {
@@ -44,4 +47,18 @@ fn get_mode(v: &Vec<f64>) -> f64 {
         .map(|(val, _)| val)
         .expect("Cannot compute the mode of zero numbers")
         .into_inner()
+}
+
+// TODO: add checking for vowel
+fn pig_latin(s: &String) -> String {
+    if s.chars().count() > 0 {
+        let mut ms: String = s.chars().skip(1).take(s.chars().count() - 1).collect();
+        ms.push('-');
+        ms.push(s.chars().next().unwrap());
+        ms.push_str("ay");
+
+        return ms
+    }
+
+    "".to_string()
 }
