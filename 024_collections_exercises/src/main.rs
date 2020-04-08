@@ -49,12 +49,18 @@ fn get_mode(v: &Vec<f64>) -> f64 {
         .into_inner()
 }
 
-// TODO: add checking for vowel
+// Enlish vowels: A, E, I, O, U, and sometimes Y
 fn pig_latin(s: &String) -> String {
+    let vowels = "aeioy".to_string();
     if s.chars().count() > 0 {
+        let first_letter = s.chars().next().unwrap();
+        if vowels.find(first_letter.to_ascii_lowercase()) != None {
+             return s.clone() + "-hay";
+        }
+
         let mut ms: String = s.chars().skip(1).take(s.chars().count() - 1).collect();
         ms.push('-');
-        ms.push(s.chars().next().unwrap());
+        ms.push(first_letter);
         ms.push_str("ay");
 
         return ms
