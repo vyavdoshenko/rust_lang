@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 pub use ordered_float::*;
 
 fn main() {
@@ -12,6 +14,14 @@ fn main() {
 
     println!("Pig latin: {:?}", pig_latin(&String::from("first")));
     println!("Pig latin: {:?}", pig_latin(&String::from("apple")));
+
+    let mut collection: HashMap<String, Vec<String>> = HashMap::new();
+    add_employee(&String::from("Add Sally to Engineering"), &mut collection);
+    add_employee(&String::from("Add Amir to Sales"), &mut collection);
+    add_employee(&String::from("Add Bobby to Engineering"), &mut collection);
+    add_employee(&String::from("Add Ahmad to Sales"), &mut collection);
+    add_employee(&String::from("Add Bob to Tech"), &mut collection);
+    add_employee(&String::from("Add Alisa to Sales"), &mut collection);
 }
 
 fn get_mean(v: &Vec<f64>) -> f64 {
@@ -32,8 +42,6 @@ fn get_median(v: &Vec<f64>) -> f64 {
 }
 
 fn get_mode(v: &Vec<f64>) -> f64 {
-    use std::collections::HashMap;
-
     let mut collection: HashMap<OrderedFloat<f64>, u32> = HashMap::new();
 
     for element in v.iter() {
@@ -67,4 +75,21 @@ fn pig_latin(s: &String) -> String {
     }
 
     "".to_string()
+}
+
+fn add_employee(s: &String, collection: &mut HashMap<String, Vec<String>>) {
+    let mut words = s.split_whitespace();
+    if Some("Add") == words.next() {
+        let name = words.next();
+        if name != None {
+            if Some("to") == words.next() {
+                let department = words.next();
+                if department != None && words.next() == None {
+                    collection.entry(String::from(department.unwrap()))
+                        .or_insert(Vec::new())
+                        .push(String::from(name.unwrap()));
+                }
+            }
+        }
+    }
 }
