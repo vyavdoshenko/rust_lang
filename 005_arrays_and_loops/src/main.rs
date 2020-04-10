@@ -7,9 +7,9 @@ fn main() {
 }
 
 fn monthes() {
-    let months = [  "January", "February", "March", "April", "May", "June", "July",
-                    "August", "September", "October", "November", "December"];
-    let mut i:usize = 0;
+    let months = ["January", "February", "March", "April", "May", "June", "July",
+        "August", "September", "October", "November", "December"];
+    let mut i: usize = 0;
     loop {
         println!("months[{}]: {}", i, months[i]);
 
@@ -36,10 +36,9 @@ fn enumerate_and_reverse() {
 }
 
 fn print_str_by_chars(s: &String) {
-
     let bytes = s.as_bytes();
 
-    let mut i:usize = 0;
+    let mut i: usize = 0;
     while bytes.len() != i {
         println!("Index: {}, char number: {}", i, bytes[i]);
         i += 1;

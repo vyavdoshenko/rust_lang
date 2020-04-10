@@ -96,9 +96,9 @@ fn add_employee(s: &String, collection: &mut HashMap<String, Vec<String>>) {
     }
 }
 
-fn print_employees_by_department(dep: &String, collection: & HashMap<String, Vec<String>>) {
+fn print_employees_by_department(dep: &String, collection: &HashMap<String, Vec<String>>) {
     println!("Department: {:?}", dep);
-    let employees= collection.get(dep);
+    let employees = collection.get(dep);
     if employees != None {
         let mut sorted = employees.unwrap().clone();
         sorted.sort();
