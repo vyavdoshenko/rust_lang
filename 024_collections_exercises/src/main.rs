@@ -22,6 +22,8 @@ fn main() {
     add_employee(&String::from("Add Ahmad to Sales"), &mut collection);
     add_employee(&String::from("Add Bob to Tech"), &mut collection);
     add_employee(&String::from("Add Alisa to Sales"), &mut collection);
+
+    print_employees_by_department(&String::from("Engineering"), &collection);
 }
 
 fn get_mean(v: &Vec<f64>) -> f64 {
@@ -91,5 +93,15 @@ fn add_employee(s: &String, collection: &mut HashMap<String, Vec<String>>) {
                 }
             }
         }
+    }
+}
+
+fn print_employees_by_department(dep: &String, collection: & HashMap<String, Vec<String>>) {
+    println!("Department: {:?}", dep);
+    let employees= collection.get(dep);
+    if employees != None {
+        let mut sorted = employees.unwrap().clone();
+        sorted.sort();
+        println!("Employees: {:?}", &sorted);
     }
 }
