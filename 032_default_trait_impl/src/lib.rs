@@ -18,3 +18,7 @@ pub struct Tweet {
     pub reply: bool,
     pub retweet: bool,
 }
+
+pub fn notify(item: impl Summary) {
+    println!("Breaking news! {}", item.summarize());
+}

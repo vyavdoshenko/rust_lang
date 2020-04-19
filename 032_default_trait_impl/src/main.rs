@@ -9,4 +9,6 @@ fn main() {
     };
 
     println!("1 new tweet: {}", tweet.summarize());
+
+    default_trait_impl::notify(tweet);
 }
