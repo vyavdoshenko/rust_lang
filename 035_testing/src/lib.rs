@@ -22,6 +22,12 @@ mod tests {
     fn test_panic() {
         module::panic_fn();
     }
+
+    #[test]
+    #[ignore]
+    fn ignored_test() {
+        panic!("Test panic in unit test");
+    }
 }
 
 pub mod module {
