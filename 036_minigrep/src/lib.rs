@@ -1,5 +1,5 @@
-use std::fs;
 use std::error::Error;
+use std::fs;
 
 pub struct Config {
     pub query: String,
