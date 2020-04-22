@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+  <configuration default="false" name="Test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" singleton="false">
     <option name="channel" value="DEFAULT" />
-    <option name="command" value="run  test poem.txt" />
-    <option name="allFeatures" value="false" />
+    <option name="command" value="test" />
+    <option name="allFeatures" value="true" />
     <option name="nocapture" value="false" />
     <option name="emulateTerminal" value="false" />
     <option name="backtrace" value="SHORT" />
