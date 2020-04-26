@@ -29,3 +29,11 @@ $ cargo run --release
 ```
 $ cargo test
 ```
+* How to create documentation:
+```
+$ cargo doc
+```
+* How to open documentation:
+```
+$ cargo doc --open
+```
