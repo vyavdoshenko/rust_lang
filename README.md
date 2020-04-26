@@ -25,3 +25,7 @@ $ cargo build --release
 ```
 $ cargo run --release
 ```
+* How to run tests cargo project:
+```
+$ cargo test
+```
