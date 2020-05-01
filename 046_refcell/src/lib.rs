@@ -39,8 +39,9 @@ impl<'a, T> LimitTracker<'a, T>
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use std::cell::RefCell;
+
+    use super::*;
 
     struct MockMessenger {
         sent_messages: RefCell<Vec<String>>,

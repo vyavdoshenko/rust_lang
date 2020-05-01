@@ -34,6 +34,7 @@ impl Iterator for Counter {
 #[cfg(test)]
 mod tests {
     use super::*;
+
     #[test]
     fn calling_next_directly() {
         let mut counter = Counter::new();
@@ -80,11 +81,11 @@ mod tests {
             vec![
                 Shoe {
                     size: 10,
-                    style: String::from("sneaker")
+                    style: String::from("sneaker"),
                 },
                 Shoe {
                     size: 10,
-                    style: String::from("boot")
+                    style: String::from("boot"),
                 },
             ]
         );

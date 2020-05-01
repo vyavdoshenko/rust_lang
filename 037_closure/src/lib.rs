@@ -25,7 +25,7 @@ impl<T> Cacher<T>
                 let v = (self.calculation)(arg);
                 self.value = Some(v);
                 v
-            },
+            }
         }
     }
 }
