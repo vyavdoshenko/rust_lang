@@ -1,6 +1,7 @@
 fn main() {
     if_let();
     while_let();
+    for_loop();
 }
 
 fn if_let() {
@@ -32,5 +33,13 @@ fn while_let() {
 
     while let Some(top) = stack.pop() {
         println!("{}", top);
+    }
+}
+
+fn for_loop() {
+    let v = vec!['a', 'b', 'c'];
+
+    for (index, value) in v.iter().enumerate() {
+        println!("{} is at index {}", value, index);
     }
 }
