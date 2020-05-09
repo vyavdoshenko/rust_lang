@@ -1,4 +1,9 @@
 fn main() {
+    if_let();
+    while_let();
+}
+
+fn if_let() {
     let favorite_color: Option<&str> = None;
     let is_tuesday = false;
     let age: Result<u8, _> = "34".parse();
@@ -15,5 +20,17 @@ fn main() {
         }
     } else {
         println!("Using blue as the background color");
+    }
+}
+
+fn while_let() {
+    let mut stack = Vec::new();
+
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+
+    while let Some(top) = stack.pop() {
+        println!("{}", top);
     }
 }
