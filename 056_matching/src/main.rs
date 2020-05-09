@@ -2,6 +2,7 @@ fn main() {
     if_let();
     while_let();
     for_loop();
+    destructive_tuple();
 }
 
 fn if_let() {
@@ -42,4 +43,12 @@ fn for_loop() {
     for (index, value) in v.iter().enumerate() {
         println!("{} is at index {}", value, index);
     }
+}
+
+fn destructive_tuple() {
+    let (x, y, z) = (1, 2, 3);
+
+    println!("x: {}", x);
+    println!("y: {}", y);
+    println!("z: {}", z);
 }

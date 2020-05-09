@@ -1,5 +1,5 @@
 [package]
-name = "another_iflet"
+name = "matching"
 version = "0.1.0"
 authors = ["Vladimir Yavdoshenko <v.yavdoshenko@gmail.com>"]
 edition = "2018"
