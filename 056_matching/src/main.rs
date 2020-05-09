@@ -3,6 +3,9 @@ fn main() {
     while_let();
     for_loop();
     destructive_tuple();
+
+    let point = (3, 5);
+    print_coordinates(&point);
 }
 
 fn if_let() {
@@ -51,4 +54,8 @@ fn destructive_tuple() {
     println!("x: {}", x);
     println!("y: {}", y);
     println!("z: {}", z);
+}
+
+fn print_coordinates(&(x, y): &(i32, i32)) {
+    println!("Current location: ({}, {})", x, y);
 }
