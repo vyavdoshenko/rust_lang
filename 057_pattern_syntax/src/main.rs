@@ -1,5 +1,6 @@
 fn main() {
     matching_literals();
+    matching_named_variables();
 }
 
 fn matching_literals() {
@@ -11,4 +12,17 @@ fn matching_literals() {
         3 => println!("three"),
         _ => println!("anything"),
     }
+}
+
+fn matching_named_variables() {
+    let x = Some(5);
+    let y = 10;
+
+    match x {
+        Some(50) => println!("Got 50"),
+        Some(y) => println!("Matched, y = {:?}", y),
+        _ => println!("Default case, x = {:?}", x),
+    }
+
+    println!("at the end: x = {:?}, y = {:?}", x, y);
 }
