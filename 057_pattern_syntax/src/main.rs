@@ -1,6 +1,7 @@
 fn main() {
     matching_literals();
     matching_named_variables();
+    multiple_patterns();
 }
 
 fn matching_literals() {
@@ -25,4 +26,14 @@ fn matching_named_variables() {
     }
 
     println!("at the end: x = {:?}, y = {:?}", x, y);
+}
+
+fn multiple_patterns() {
+    let x = 1;
+
+    match x {
+        1 | 2 => println!("one or two"),
+        3 => println!("three"),
+        _ => println!("anything"),
+    }
 }
