@@ -15,6 +15,8 @@ fn main() {
     suppress_warning_for_unused_variables();
     ignoring_remaining_part();
     ignoring_remaining_part_of_tuple();
+    ignoring_most_values_except_penultimate();
+    match_guard();
 }
 
 fn matching_literals() {
@@ -221,5 +223,25 @@ fn ignoring_remaining_part_of_tuple() {
         (first, .., last) => {
             println!("Some numbers: {}, {}", first, last);
         }
+    }
+}
+
+fn ignoring_most_values_except_penultimate() {
+    let numbers = (2, 4, 8, 16, 32);
+
+    match numbers {
+        (.., before_last, _) => {
+            println!("Penultimate value: {}", before_last);
+        }
+    }
+}
+
+fn match_guard() {
+    let num = Some(4);
+
+    match num {
+        Some(x) if x < 5 => println!("less than five: {}", x),
+        Some(x) => println!("{}", x),
+        None => (),
     }
 }
