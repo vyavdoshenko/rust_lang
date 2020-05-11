@@ -10,6 +10,7 @@ fn main() {
     destructing_enum();
     destructing_nested_struct();
     destructing_complex_structs_and_tuples();
+    ignore_unused_parameter(3, 4);
 }
 
 fn matching_literals() {
@@ -158,4 +159,8 @@ fn destructing_complex_structs_and_tuples() {
     println!("Inches: {}", inches);
     println!("x: {}", x);
     println!("y: {}", y);
+}
+
+fn ignore_unused_parameter(_: i32, y: i32) {
+    println!("This code only uses the y parameter: {}", y);
 }
