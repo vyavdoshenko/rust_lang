@@ -18,6 +18,7 @@ fn main() {
     ignoring_most_values_except_penultimate();
     match_guard();
     match_guard_outer_var();
+    combining_multiple_patterns();
 }
 
 fn matching_literals() {
@@ -258,4 +259,14 @@ fn match_guard_outer_var() {
     }
 
     println!("at the end: x = {:?}, y = {}", x, y);
+}
+
+fn combining_multiple_patterns() {
+    let x = 4;
+    let y = false;
+
+    match x {
+        4 | 5 | 6 if y => println!("yes"),
+        _ => println!("no"),
+    }
 }
