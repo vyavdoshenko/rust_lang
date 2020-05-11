@@ -13,6 +13,7 @@ fn main() {
     ignore_unused_parameter(3, 4);
     ignore_part_of_pattern();
     suppress_warning_for_unused_variables();
+    ignoring_remaining_part();
 }
 
 fn matching_literals() {
@@ -196,4 +197,18 @@ fn ignore_part_of_container() {
 fn suppress_warning_for_unused_variables() {
     let _x = 5;
     let _y = 10;
+}
+
+fn ignoring_remaining_part() {
+    struct LocalPoint {
+        x: i32,
+        y: i32,
+        z: i32,
+    }
+
+    let origin = LocalPoint { x: 0, y: 0, z: 0 };
+
+    match origin {
+        LocalPoint { x, .. } => println!("x is {}", x),
+    }
 }
