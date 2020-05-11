@@ -11,6 +11,7 @@ fn main() {
     destructing_nested_struct();
     destructing_complex_structs_and_tuples();
     ignore_unused_parameter(3, 4);
+    ignore_part_of_pattern();
 }
 
 fn matching_literals() {
@@ -163,4 +164,30 @@ fn destructing_complex_structs_and_tuples() {
 
 fn ignore_unused_parameter(_: i32, y: i32) {
     println!("This code only uses the y parameter: {}", y);
+}
+
+fn ignore_part_of_pattern() {
+    let mut setting_value = Some(5);
+    let new_setting_value = Some(10);
+
+    match (setting_value, new_setting_value) {
+        (Some(_), Some(_)) => {
+            println!("Can't overwrite an existing customized value");
+        }
+        _ => {
+            setting_value = new_setting_value;
+        }
+    }
+
+    println!("setting is {:?}", setting_value);
+}
+
+fn ignore_part_of_container() {
+    let numbers = (2, 4, 8, 16, 32);
+
+    match numbers {
+        (first, _, third, _, fifth) => {
+            println!("Some numbers: {}, {}, {}", first, third, fifth)
+        }
+    }
 }
