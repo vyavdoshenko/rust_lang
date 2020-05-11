@@ -14,6 +14,7 @@ fn main() {
     ignore_part_of_pattern();
     suppress_warning_for_unused_variables();
     ignoring_remaining_part();
+    ignoring_remaining_part_of_tuple();
 }
 
 fn matching_literals() {
@@ -210,5 +211,15 @@ fn ignoring_remaining_part() {
 
     match origin {
         LocalPoint { x, .. } => println!("x is {}", x),
+    }
+}
+
+fn ignoring_remaining_part_of_tuple() {
+    let numbers = (2, 4, 8, 16, 32);
+
+    match numbers {
+        (first, .., last) => {
+            println!("Some numbers: {}, {}", first, last);
+        }
     }
 }
