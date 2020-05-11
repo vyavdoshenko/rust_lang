@@ -8,6 +8,7 @@ fn main() {
     destructing_struct_shorthand();
     destructing_struct_matching_literals();
     destructing_enum();
+    destructing_nested_struct();
 }
 
 fn matching_literals() {
@@ -119,5 +120,33 @@ fn destructing_enum() {
             "Change the color to red {}, green {}, and blue {}",
             r, g, b
         ),
+    }
+}
+
+enum NestedColor {
+    Rgb(i32, i32, i32),
+    Hsv(i32, i32, i32),
+}
+
+enum NestedMessage {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(NestedColor),
+}
+
+fn destructing_nested_struct() {
+    let msg = NestedMessage::ChangeColor(NestedColor::Hsv(0, 160, 255));
+
+    match msg {
+        NestedMessage::ChangeColor(NestedColor::Rgb(r, g, b)) => println!(
+            "Change the color to red {}, green {}, and blue {}",
+            r, g, b
+        ),
+        NestedMessage::ChangeColor(NestedColor::Hsv(h, s, v)) => println!(
+            "Change the color to hue {}, saturation {}, and value {}",
+            h, s, v
+        ),
+        _ => (),
     }
 }
