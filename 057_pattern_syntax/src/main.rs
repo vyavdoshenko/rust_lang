@@ -9,6 +9,7 @@ fn main() {
     destructing_struct_matching_literals();
     destructing_enum();
     destructing_nested_struct();
+    destructing_complex_structs_and_tuples();
 }
 
 fn matching_literals() {
@@ -149,4 +150,12 @@ fn destructing_nested_struct() {
         ),
         _ => (),
     }
+}
+
+fn destructing_complex_structs_and_tuples() {
+    let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
+    println!("Feet: {}", feet);
+    println!("Inches: {}", inches);
+    println!("x: {}", x);
+    println!("y: {}", y);
 }
