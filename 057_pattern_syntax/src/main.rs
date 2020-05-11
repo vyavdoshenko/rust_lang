@@ -12,6 +12,7 @@ fn main() {
     destructing_complex_structs_and_tuples();
     ignore_unused_parameter(3, 4);
     ignore_part_of_pattern();
+    suppress_warning_for_unused_variables();
 }
 
 fn matching_literals() {
@@ -190,4 +191,9 @@ fn ignore_part_of_container() {
             println!("Some numbers: {}, {}, {}", first, third, fifth)
         }
     }
+}
+
+fn suppress_warning_for_unused_variables() {
+    let _x = 5;
+    let _y = 10;
 }
