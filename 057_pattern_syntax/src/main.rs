@@ -17,6 +17,7 @@ fn main() {
     ignoring_remaining_part_of_tuple();
     ignoring_most_values_except_penultimate();
     match_guard();
+    match_guard_outer_var();
 }
 
 fn matching_literals() {
@@ -244,4 +245,17 @@ fn match_guard() {
         Some(x) => println!("{}", x),
         None => (),
     }
+}
+
+fn match_guard_outer_var() {
+    let x = Some(5);
+    let y = 10;
+
+    match x {
+        Some(50) => println!("Got 50"),
+        Some(n) if n == y => println!("Matched, n = {}", n),
+        _ => println!("Default case, x = {:?}", x),
+    }
+
+    println!("at the end: x = {:?}, y = {}", x, y);
 }
