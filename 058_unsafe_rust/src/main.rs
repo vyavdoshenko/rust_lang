@@ -9,6 +9,7 @@ fn main() {
 
     wrap_unsafe_with_safe_abstraction();
     undefined_behavior_slicing_arbitrary_memory();
+    call_external_function();
 }
 
 fn deref_raw_pointers() {
@@ -56,4 +57,19 @@ fn undefined_behavior_slicing_arbitrary_memory() {
     let r = address as *mut i32;
 
     let _slice: &[i32] = unsafe { slice::from_raw_parts_mut(r, 10000) };
+}
+
+extern "C" {
+    fn abs(input: i32) -> i32;
+}
+
+fn call_external_function() {
+    unsafe {
+        println!("Absolute value of -3 according to C: {}", abs(-3));
+    }
+}
+
+#[no_mangle]
+pub extern "C" fn call_from_c() {
+    println!("Just called a Rust function from C!");
 }
