@@ -10,6 +10,7 @@ fn main() {
     wrap_unsafe_with_safe_abstraction();
     undefined_behavior_slicing_arbitrary_memory();
     call_external_function();
+    global_variable_manipulations();
 }
 
 fn deref_raw_pointers() {
@@ -72,4 +73,20 @@ fn call_external_function() {
 #[no_mangle]
 pub extern "C" fn call_from_c() {
     println!("Just called a Rust function from C!");
+}
+
+static mut COUNTER: u32 = 0;
+
+fn add_to_count(inc: u32) {
+    unsafe {
+        COUNTER += inc;
+    }
+}
+
+fn global_variable_manipulations() {
+    add_to_count(3);
+
+    unsafe {
+        println!("COUNTER: {}", COUNTER);
+    }
 }
