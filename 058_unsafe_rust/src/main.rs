@@ -8,6 +8,7 @@ fn main() {
     }
 
     wrap_unsafe_with_safe_abstraction();
+    undefined_behavior_slicing_arbitrary_memory();
 }
 
 fn deref_raw_pointers() {
@@ -48,4 +49,11 @@ fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
             slice::from_raw_parts_mut(ptr.add(mid), len - mid),
         )
     }
+}
+
+fn undefined_behavior_slicing_arbitrary_memory() {
+    let address = 0x01234usize;
+    let r = address as *mut i32;
+
+    let _slice: &[i32] = unsafe { slice::from_raw_parts_mut(r, 10000) };
 }
