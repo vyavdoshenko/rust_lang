@@ -26,6 +26,6 @@ impl fmt::Display for Point {
 }
 
 fn main() {
-    let point = Point{x:1, y:2};
+    let point = Point { x: 1, y: 2 };
     point.outline_print();
 }

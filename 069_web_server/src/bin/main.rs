@@ -5,7 +5,6 @@ use std::net::TcpStream;
 use std::process::exit;
 use std::thread;
 use std::time::Duration;
-
 use web_server::ThreadPool;
 
 fn main() {

@@ -1,9 +1,9 @@
+use std::ops::Add;
+
 fn main() {
     overload_plus_operator();
     different_type_trait_overload();
 }
-
-use std::ops::Add;
 
 #[derive(Debug, PartialEq)]
 struct Point {

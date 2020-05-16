@@ -1,14 +1,15 @@
-use std::thread;
-use std::sync::mpsc;
 use std::sync::Arc;
+use std::sync::mpsc;
 use std::sync::Mutex;
+use std::thread;
 
-pub struct ThreadPool{
+pub struct ThreadPool {
     workers: Vec<Worker>,
     sender: mpsc::Sender<Job>,
 }
 
 type Job = Box<dyn FnOnce() + Send + 'static>;
+
 pub struct PoolCreationError;
 
 impl ThreadPool {
@@ -33,7 +34,7 @@ impl ThreadPool {
                 }
 
                 Ok(ThreadPool { workers, sender })
-            },
+            }
             false => Err(PoolCreationError),
         }
     }

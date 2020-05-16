@@ -25,8 +25,7 @@ fn deref_raw_pointers() {
     }
 }
 
-unsafe fn dangerous() {
-}
+unsafe fn dangerous() {}
 
 fn wrap_unsafe_with_safe_abstraction() {
     let mut v = vec![1, 2, 3, 4, 5, 6];
