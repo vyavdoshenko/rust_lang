@@ -2,29 +2,24 @@ use std::fs;
 use std::io::prelude::*;
 use std::net::TcpListener;
 use std::net::TcpStream;
-use std::process::exit;
 use std::thread;
 use std::time::Duration;
 
 use web_server::ThreadPool;
 
-fn main() {
+fn main() -> Result<(), web_server::PoolCreationError> {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
-    let pool = match ThreadPool::new(4) {
-        Ok(tp) => tp,
-        Err(_) => {
-            println!("Creating thread pool failed");
-            exit(1)
-        }
-    };
+    let pool = ThreadPool::new(4)?;
 
-    for stream in listener.incoming() {
+    for stream in listener.incoming().take(2) {
         let stream = stream.unwrap();
 
         pool.execute(|| {
             handle_connection(stream);
         });
     }
+
+    Ok(())
 }
 
 fn handle_connection(mut stream: TcpStream) {
